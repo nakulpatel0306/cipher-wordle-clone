@@ -1,6 +1,7 @@
 # 🔐 Cipher - A Wordle Clone
 
 A modern, dark-themed **C++** word puzzler with **SFML** rendering and **Dear ImGui** UI.  
+
 Type guesses, get **green / yellow / red** feedback, see smooth **tile flips** and animated **keyboard heatmap**, and play in **Daily** or **Random** mode.
 
 ---
