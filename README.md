@@ -2,13 +2,12 @@
 
 A modern, dark-themed **C++** word puzzler with **SFML** rendering and **Dear ImGui** UI.  
 
-Type guesses, get **green / yellow / red** feedback, see smooth **tile flips** and animated **keyboard heatmap**, and play in **Daily** or **Random** mode.
+Type guesses, get **green / yellow / red** feedback, see animated **keyboard heatmap**, and play in **Daily** or **Random** mode.
 
 ---
 
 ## ✨ Features
 - Responsive board & keyboard that **auto-resize** with the window
-- Smooth **tile flip** reveal per guess
 - On-screen keyboard with animated colors:
   - **Green** = correct; **Yellow** = present; **Red** = not in word
 - **Daily** mode (seeded by date) and **Random** mode
