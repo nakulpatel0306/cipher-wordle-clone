@@ -1,83 +1,59 @@
-# 🔐 Cipher - A Wordle Clone
+# Cipher - A Wordle Clone
 
-A modern, dark-themed word puzzler built in **C++**. Guess the hidden word and get instant **green / yellow / red** feedback while a live **keyboard heatmap** reacts to your inputs. Jump into a fresh **Daily** challenge or spin up a **Random** run — sleek UI, responsive controls, and a focused, puzzle-first experience.
+A dark-themed Wordle clone in C++. Guess the hidden word, get colour feedback on every letter, and watch the on-screen keyboard track what you have ruled out.
 
----
+## At a Glance
 
-## ✨ Features
-- Responsive board & keyboard that **auto-resize** with the window
-- On-screen keyboard with animated colors:
-  - **Green** = correct; **Yellow** = present; **Red** = not in word
-- **Daily** mode (seeded by date) and **Random** mode
-- “Win celebration”: **all tiles turn green**
-- Session **stats & streaks**
-- **Strict dictionary** toggle (or play lenient for quick testing)
-- Minimal, aesthetic **dark UI** (ImGui)
+- **Stack:** C++20, CMake, SFML 2.6, Dear ImGui, ImGui-SFML
+- **Platforms:** macOS, Linux, Windows
+- **State:** Complete
 
----
+## Features
 
-## 🗂 Project Structure
+- Daily mode (seeded by date) and Random mode
+- Green, yellow and red letter feedback, mirrored on an animated keyboard
+- Board and keyboard resize with the window
+- Adjustable word length, attempt count and strict dictionary check
+- Session stats and win streaks
+
+## Project Structure
+
 ```
 .
-├── CMakeLists.txt                 # FetchContent: SFML, ImGui, ImGui-SFML
+├── CMakeLists.txt     # Pulls SFML, ImGui and ImGui-SFML with FetchContent
 ├── assets/
-│   └── words.txt                  # Optional word list (uppercase, one per line)
+│   └── words.txt      # Word list, uppercase, one per line
 └── src/
-    ├── main.cpp                   # Window loop, ImGui init, event routing
-    ├── Game.hpp                   # Core game types, config, state, UI hooks
-    ├── Game.cpp                   # Game logic, rendering, animations
-    ├── WordList.hpp               # Word list loader (file + builtin)
-    └── WordList.cpp
+    ├── main.cpp       # Window loop, ImGui setup, event routing
+    ├── Game.hpp/.cpp  # Game state, rules, rendering and animations
+    └── WordList.hpp/.cpp  # Loads words from file or the built-in list
 ```
 
----
+## Running Locally
 
-## 🚀 Getting Started
+Needs CMake 3.21+, a C++20 compiler (AppleClang, MSVC 2022, GCC 11+ or Clang 13+), and internet on the first build so CMake can fetch SFML and ImGui.
 
-### Prereqs
-- **CMake 3.21+**
-- A C++ compiler with **C++20** support  
-  - macOS: Xcode / AppleClang  
-  - Windows: MSVC (VS 2022)  
-  - Linux: GCC 11+ or Clang 13+
-- Internet access the first time you configure (CMake **FetchContent** grabs SFML & ImGui)
+macOS and Linux:
 
-### Build & Run (macOS / Linux)
 ```bash
-# from the project root
 cmake --fresh -S . -B build -DCMAKE_BUILD_TYPE=Release
 cmake --build build --config Release
 ./build/cipher
 ```
 
-### Build & Run (Windows, x64 Native Tools for VS 2022)
+Windows (x64 Native Tools for VS 2022):
+
 ```bat
 cmake --fresh -S . -B build -DCMAKE_BUILD_TYPE=Release
 cmake --build build --config Release
 build\Release\cipher.exe
 ```
 
-> Windows note: the CMake script copies required SFML runtime DLLs next to the EXE after build.
+The Windows build copies the SFML DLLs next to the executable automatically.
 
----
+## Controls
 
-## 🎮 How to Play
-- **Type letters** to fill the current row  
-- **Enter/Return** to submit  
-- **Backspace** to delete  
-- **ESC** to quit  
-- Top menu → **game**: _new random_ / _new daily_ / _restart (same word)_  
-- Top menu → **settings**: _word length_, _attempts_, _strict dictionary_  
-
-**Colors after submit**
-- **Green**: letter is correct and in the right position  
-- **Yellow**: letter exists but in a different position  
-- **Red**: letter not in the secret word  
-
----
-
-## 🛠 Tech Stack
-- **C++20**, **CMake**
-- **SFML 2.6.x**
-- **Dear ImGui 1.90+**
-- **ImGui-SFML v2.6**
+- Type to fill the row, Enter to submit, Backspace to delete, Esc to quit
+- **Game menu:** new random, new daily, restart the same word
+- **Settings menu:** word length, attempts, strict dictionary
+- **Colours:** green is the right letter in the right spot, yellow is in the word but elsewhere, red is not in the word
