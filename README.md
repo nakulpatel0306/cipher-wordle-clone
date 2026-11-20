@@ -58,3 +58,7 @@ Run it from the repo root so it finds `assets/words.txt`; otherwise it falls bac
 - **Game menu:** new random, new daily, restart the same word
 - **Settings menu:** word length (4-6), attempts (4-8), strict dictionary
 - **Colours:** green is the right letter in the right spot, yellow is in the word but elsewhere, red is not in the word
+
+## License
+
+MIT, see [LICENSE](LICENSE).
